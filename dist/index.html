@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/undescore-min.js"></script>
+    <script src="js/backbone.min.js"></script>
+    <script src="js/main.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo"> <a href="#" class="logo_link">Store</a></div>
+      <label for="dropMenu" class="drop-menu"><i class="fa fa-bars"> </i></label>
+      <input type="checkbox" id="dropMenu">
+      <nav class="clearfix">
+        <ul class="menu">
+          <li class="menu_item active"><a href="#" class="menu_item_link">Dashboard</a></li>
+          <li class="menu_item"><a href="#" class="menu_item_link">Products</a></li>
+          <li class="menu_item"><a href="#" class="menu_item_link">Categories</a></li>
+          <li class="menu_item"><a href="#" class="menu_item_link">Users</a></li>
+        </ul>
+      </nav>
+      <div class="icons">
+        <label> <i class="fa fa-bell"></i>
+          <input type="checkbox">
+        </label>
+        <label for="user"> <i class="fa fa-user"></i></label>
+        <input id="user" type="checkbox">
+        <div class="user-box">
+          <p class="user-box_par">  <a href="#" class="user-box_link"><i class="fa fa-user"></i>User Profile  </a></p>
+          <p class="user-box_par"> <a href="#" class="user-box_link"><i class="fa fa-cog"></i>Settings</a></p>
+          <hr>
+          <p class="user-box_par"><a href="#" class="user-box_link"> <i class="fa fa-sign-out"></i>Logout   </a></p>
+        </div>
+      </div>
+    </header>
+    <main class="wrapper"> 
+      <section class="charts">
+        <h1>Charts</h1>
+        <hr>
+        <div class="canvas-container">
+          <div class="canvas-box">
+            <canvas id="firstCanvas" width="115px" height="115px"> </canvas>
+            <p class="canvas-box_caption">Today</p>
+          </div>
+          <div class="canvas-box">
+            <canvas id="secondCanvas" width="115px" height="115px"> </canvas>
+            <p class="canvas-box_caption">Week</p>
+          </div>
+          <div class="canvas-box">
+            <canvas id="thirdCanvas" width="115px" height="115px"> </canvas>
+            <p class="canvas-box_caption">Month</p>
+          </div>
+          <div class="canvas-box">
+            <canvas id="fourthCanvas" width="115px" height="115px"> </canvas>
+            <p class="canvas-box_caption">Year</p>
+          </div>
+        </div>
+      </section>
+      <section class="sales">
+        <h1>Sales</h1>
+        <hr>
+        <table class="sales_table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>
+                <input type="checkbox" id="headCheck">
+                <label for="headCheck"></label>
+              </th>
+              <th class="sort">Product</th>
+              <th class="sort">Category</th>
+              <th class="sort">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="sales_table_row">
+              <td class="editable">1</td>
+              <td>
+                <input type="checkbox" id="1" class="check">
+                <label for="1"></label>
+              </td>
+              <td class="editable">Bread</td>
+              <td class="editable">Food</td>
+              <td class="editable">1$</td>
+              <td class="control"> 
+                <button class="control_edit"><i title="edit" class="fa fa-pencil"></i></button>
+                <button class="control_delete"><i title="delete" class="fa fa-trash-o"></i></button>
+              </td>
+            </tr>
+            <tr class="sales_table_row">
+              <td class="editable">2</td>
+              <td>
+                <input type="checkbox" id="2" class="check">
+                <label for="2"></label>
+              </td>
+              <td class="editable">Milk</td>
+              <td class="editable">Food</td>
+              <td class="editable">2$</td>
+              <td class="control"> 
+                <button class="control_edit"><i title="edit" class="fa fa-pencil"></i></button>
+                <button class="control_delete"><i title="delete" class="fa fa-trash-o"></i></button>
+              </td>
+            </tr>
+            <tr class="sales_table_row">
+              <td class="editable">3</td>
+              <td>
+                <input type="checkbox" id="3" class="check">
+                <label for="3"></label>
+              </td>
+              <td class="editable">IPhone</td>
+              <td class="editable">Electronics</td>
+              <td class="editable">699$</td>
+              <td class="control"> 
+                <button class="control_edit"><i title="edit" class="fa fa-pencil"></i></button>
+                <button class="control_delete"><i title="delete" class="fa fa-trash-o"></i></button>
+              </td>
+            </tr>
+            <tr class="sales_table_row">
+              <td class="editable">4</td>
+              <td>
+                <input type="checkbox" id="4" class="check">
+                <label for="4"></label>
+              </td>
+              <td class="editable">TV</td>
+              <td class="editable">Electronics</td>
+              <td class="editable">1099$</td>
+              <td class="control"> 
+                <button class="control_edit"><i title="edit" class="fa fa-pencil"></i></button>
+                <button class="control_delete"><i title="delete" class="fa fa-trash-o"></i></button>
+              </td>
+            </tr>
+            <tr class="sales_table_row">
+              <td class="editable">5</td>
+              <td>
+                <input type="checkbox" id="5" class="check">
+                <label for="5"></label>
+              </td>
+              <td class="editable">F.M.Dostoevsky &quot;Crime and punishment&quot;</td>
+              <td class="editable">Books</td>
+              <td class="editable">1000$</td>
+              <td class="control"> 
+                <button class="control_edit"><i title="edit" class="fa fa-pencil"></i></button>
+                <button class="control_delete"><i title="delete" class="fa fa-trash-o"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="recomendation">
+        <h1>We Recommend</h1>
+        <hr>
+        <div class="photos">
+          <div class="photo"><img src="img/food.jpg" alt="food"></div>
+          <div class="photo"><img src="img/ipad.jpg" alt="ipad"></div>
+          <div class="photo last"><img src="img/mini_cooper.jpg" alt="mini-cooper"></div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrapper">
+        <div class="copyright">&copy; copyright</div>
+      </div>
+    </footer>
+    <script id="itemTpl" type="text/template">
+      <td><%= mId %></td>
+      <td>
+        <input type="checkbox" id="<%= mId %>" class="check" <% if (checked) { print('checked') } %> />
+        <label for="<%= mId %>"/>
+      </td>
+      <td><%= title %></td>
+      <td><%= category %></td>
+      <td><%= price + '$' %></td>
+      <td class="control"> 
+        <button class="control_edit"><i title="edit" class="fa fa-pencil"></i></button>
+        <button class="control_delete"><i title="delete" class="fa fa-trash-o"></i></button>
+      </td>
+    </script>
+  </body>
+</html>

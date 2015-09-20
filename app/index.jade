@@ -1,0 +1,121 @@
+doctype html
+mixin row(...items)
+  tr(class="sales_table_row")
+    each item in items
+      if item === ''
+        td
+          input.check(type="checkbox" id= items[0])
+          label(for= items[0])
+      else if item === 'edit'
+        td.control 
+          button.control_edit
+            i.fa.fa-pencil(title="edit")
+          button.control_delete
+            i.fa.fa-trash-o(title="delete")
+      else
+        td.editable= item
+html(lang="en")
+  head
+    title Test
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="css/font-awesome.min.css")
+    link(rel="stylesheet" href="css/style.css")
+    script(src="js/jquery.min.js")
+    script(src="js/undescore-min.js")
+    script(src="js/backbone.min.js")
+    script(src="js/main.js")
+  body
+    header
+      .logo 
+        a.logo_link(href="#") Store
+      label.drop-menu(for="dropMenu")
+        i.fa.fa-bars  
+      input(type="checkbox" id="dropMenu") 
+      nav.clearfix
+        ul.menu
+          each val in ['Dashboard', 'Products', 'Categories', 'Users']
+            if val == 'Dashboard'
+              li.menu_item.active
+                a.menu_item_link(href="#")= val
+            else
+              li.menu_item
+                a.menu_item_link(href="#")= val
+      .icons
+        label 
+          i.fa.fa-bell
+          input(type="checkbox")  
+        label(for="user") 
+          i.fa.fa-user
+        input#user(type="checkbox")
+        .user-box
+          p.user-box_par   
+            a.user-box_link(href="#")
+              i.fa.fa-user
+              | User Profile  
+          p.user-box_par 
+            a.user-box_link(href="#")
+              i.fa.fa-cog
+              | Settings
+          hr
+          p.user-box_par
+            a.user-box_link(href="#") 
+              i.fa.fa-sign-out
+              | Logout   
+    main.wrapper  
+      section.charts
+        h1 Charts
+        hr
+        .canvas-container
+          each val, index in {'firstCanvas': 'Today', 'secondCanvas': 'Week', 'thirdCanvas': 'Month', 'fourthCanvas': 'Year'}
+            div.canvas-box
+              canvas(id=index width="115px" height="115px") 
+              p.canvas-box_caption= val 
+      section.sales
+        h1 Sales
+        hr
+        table.sales_table
+          thead
+            tr
+              each val in ['#', '', 'Product', 'Category', 'Price']  
+                if val === ''
+                  th
+                    input(type="checkbox" id="headCheck")
+                    label(for="headCheck")
+                else if val !== '#'
+                  th.sort= val
+                else
+                  th= val
+          tbody
+            +row(1, '', 'Bread', 'Food', '1$', 'edit')
+            +row(2, '', 'Milk', 'Food', '2$', 'edit')
+            +row(3, '', 'IPhone', 'Electronics', '699$', 'edit')
+            +row(4, '', 'TV', 'Electronics', '1099$', 'edit')
+            +row(5, '', 'F.M.Dostoevsky "Crime and punishment"', 'Books', '1000$', 'edit')
+      section.recomendation
+        h1 We Recommend
+        hr
+        .photos
+          each val,index in{'img/food.jpg': 'food', 'img/ipad.jpg': 'ipad', 'img/mini_cooper.jpg': 'mini-cooper'}
+            if val === 'mini-cooper'
+              .photo.last
+                img(src= index, alt= val) 
+            else
+              .photo
+                img(src= index, alt= val)
+    footer
+      .wrapper
+        .copyright &copy; copyright
+    script(id='itemTpl', type='text/template')
+      td <%= mId %>
+      td
+        | <input type="checkbox" id="<%= mId %>" class="check" <% if (checked) { print('checked') } %> />
+        | <label for="<%= mId %>"/>
+      td <%= title %>
+      td <%= category %>
+      td <%= price + '$' %>
+      td.control 
+        button.control_edit
+          i.fa.fa-pencil(title="edit")
+        button.control_delete
+          i.fa.fa-trash-o(title="delete")
